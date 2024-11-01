@@ -1,6 +1,5 @@
-import { PrimaryButton } from "@/components";
-import { Text, Box, Flex, Select, Grid, GridItem, Input } from "@chakra-ui/react";
-import { IoIosSwap, IoIosSearch } from 'react-icons/io'
+import { SearchTrip } from "@/components";
+import { Text, Box, Flex, Grid, GridItem } from "@chakra-ui/react";
 import HomeItemDescription from "./components/HomeItemDescription";
 import { HOME_ITEM_DATA } from "@/constants/data";
 
@@ -54,51 +53,7 @@ const Index = () => {
 					<Text variant={'h3'} color='black'>
 						Search Trips
 					</Text>
-					<Grid templateColumns={'repeat(2, 1fr)'} mt={3} gap={3}>
-						<GridItem
-							colSpan={{
-								base: 2,
-								md: 1,
-							}}
-							display={'flex'}
-							alignItems={'center'}
-							gap={3}
-						>
-							<Select
-								placeholder="From"
-							>
-								<option value="option1">Option 1</option>
-								<option value="option2">Option 2</option>
-								<option value="option3">Option 3</option>
-							</Select>
-							<IoIosSwap size={50} />
-							<Select
-								placeholder="From"
-							>
-								<option value="option1">Option 1</option>
-								<option value="option2">Option 2</option>
-								<option value="option3">Option 3</option>
-							</Select>
-						</GridItem>
-						<GridItem
-							colSpan={{
-								base: 2,
-								md: 1,
-							}}
-							display={'flex'}
-							alignItems={'center'}
-							gap={3}
-						>
-							<Input
-								type="datetime-local"
-							/>
-							<PrimaryButton
-								leftIcon={<IoIosSearch />}
-							>
-								Search
-							</PrimaryButton>
-						</GridItem>
-					</Grid>
+					<SearchTrip />
 				</Box>
 			</Box>
 			<Grid
