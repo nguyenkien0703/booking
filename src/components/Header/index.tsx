@@ -18,7 +18,13 @@ const Header = () => {
 					DRIVE HUB
 				</Text>
 			</Flex>
-			<Flex gap={5}>
+			<Flex
+				gap={5}
+				display={{
+					base: 'none',
+					md: 'flex',
+				}}
+			>
 				{LIST_HEADER_MENU.map((item: any) => {
 					return (
 						<Link
@@ -32,7 +38,14 @@ const Header = () => {
 					)
 				})}
 			</Flex>
-			<Flex gap={2} alignItems={'center'}>
+			<Flex
+				gap={2}
+				alignItems={'center'}
+				display={{
+					base: 'none',
+					md: 'flex',
+				}}
+			>
 				<PrimaryButton>
 					Login or Create Account
 				</PrimaryButton>
