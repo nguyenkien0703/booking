@@ -229,7 +229,7 @@ const chakraTheme = extendTheme({
 					fontWeight: fonts.display6.fw,
 				},
 			}
-		}
+		},
 	}
 })
 
