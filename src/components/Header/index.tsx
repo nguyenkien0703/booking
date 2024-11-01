@@ -1,4 +1,8 @@
-import {Flex, Image, Text} from "@chakra-ui/react";
+import { LIST_HEADER_MENU } from "@/constants/data";
+import { Flex, Image, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import PrimaryButton from "../Button/PrimaryButton";
+
 
 const Header = () => {
 	return (
@@ -12,6 +16,32 @@ const Header = () => {
 				/>
 				<Text>
 					DRIVE HUB
+				</Text>
+			</Flex>
+			<Flex gap={5}>
+				{LIST_HEADER_MENU.map((item: any) => {
+					return (
+						<Link
+							to={item.url}
+							key={item.label}
+						>
+							<Text variant={'body-default'}>
+								{item.label}
+							</Text>
+						</Link>
+					)
+				})}
+			</Flex>
+			<Flex gap={2} alignItems={'center'}>
+				<PrimaryButton>
+					Login or Create Account
+				</PrimaryButton>
+				<Text
+					color='primary.600'
+					variant={'body-default-bold'}
+					cursor={'pointer'}
+				>
+					Select Language
 				</Text>
 			</Flex>
 		</header>
