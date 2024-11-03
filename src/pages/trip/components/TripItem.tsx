@@ -1,6 +1,6 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { PrimaryButton } from '@/components';
-import { MdFlight } from 'react-icons/md';
+import { FaCarSide } from "react-icons/fa";
 
 export default function TripItem() {
     return (
@@ -38,12 +38,12 @@ export default function TripItem() {
                                 14.50
                             </Text>
                             <Text variant={'body-tiny'}>
-                                Hanoi, Vietnam
+                                Thanh Hoa
                             </Text>
                         </Box>
                         <Box>
                             <Text variant={'body-small-bold'} padding={'0 20px'}>
-                                9hr 50mins
+                                2hr 30mins
                             </Text>
                             <Flex justifyContent={'space-between'} gap={1} alignItems={'center'}>
                                 <Box
@@ -51,9 +51,9 @@ export default function TripItem() {
                                     height={'1px'}
                                     bgColor={'gray.300'}
                                 />
-                                <MdFlight
+                                <FaCarSide
                                     size={20}
-                                    className='rotate-90'
+                                    //className='rotate-90'
                                     color='gray'
                                 />
                                 <Box
@@ -68,7 +68,7 @@ export default function TripItem() {
                                 14.50
                             </Text>
                             <Text variant={'body-tiny'}>
-                                Hanoi, Vietnam
+                                Hanoi
                             </Text>
                         </Box>
                     </Flex>
@@ -85,7 +85,7 @@ export default function TripItem() {
                     alignItems={'center'}
                 >
                     <Text variant={'body-extra-large-bold'}>
-                        $100
+                        $10
                     </Text>
                     <PrimaryButton>
                         Book Now
@@ -94,7 +94,7 @@ export default function TripItem() {
             </Flex>
             <Flex mt={5} justifyContent={'space-between'}>
                 <Text variant={'body-small'}>
-                    100 seats left
+                    10 seats left
                 </Text>
                 <Text color='orange' variant={'body-small'}>
                     Partially refundable
