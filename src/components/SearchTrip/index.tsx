@@ -1,7 +1,7 @@
 import { Grid, GridItem, Input, Select } from '@chakra-ui/react';
 import { IoIosSearch, IoIosSwap } from 'react-icons/io';
 import PrimaryButton from '@/components/Button/PrimaryButton';
-import { MdFlightTakeoff, MdFlightLand } from 'react-icons/md';
+import { MdLocationPin, IoIosRadioButtonOn } from "react-icons/md";
 
 export default function SearchTrip() {
     return (
@@ -17,7 +17,7 @@ export default function SearchTrip() {
             >
                 <Select
                     placeholder="From"
-                    icon={<MdFlightLand />}
+                    icon={<IoIosRadioButtonOn  />}
                 >
                     <option value="option1">Option 1</option>
                     <option value="option2">Option 2</option>
@@ -26,7 +26,7 @@ export default function SearchTrip() {
                 <IoIosSwap size={50} />
                 <Select
                     placeholder="To"
-                    icon={<MdFlightTakeoff />}
+                    icon={<MdLocationPin />}
                 >
                     <option value="option1">Option 1</option>
                     <option value="option2">Option 2</option>
