@@ -1,8 +1,14 @@
-import { Box, Checkbox, Flex, Text, Button, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Divider } from '@chakra-ui/react';
+import { Box, Checkbox, Flex, Text, Button, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Divider, Tooltip } from '@chakra-ui/react';
 import { useState } from 'react';
 
 export default function FilterSection() {
-    const [sliderValue, setSliderValue] = useState(50);
+    // State for "Giờ đi" slider
+    const [departureTime, setDepartureTime] = useState(12); // default to 12
+    const [showDepartureTooltip, setShowDepartureTooltip] = useState(false);
+
+    // State for "Giá vé" slider
+    const [ticketPrice, setTicketPrice] = useState(10); // default to 10
+    const [showPriceTooltip, setShowPriceTooltip] = useState(false);
 
     return (
         <Box
@@ -16,10 +22,10 @@ export default function FilterSection() {
             <Text fontFamily={'Segoe UI'} fontWeight={600} fontSize={'18px'} color={'black'}>
                 Lọc
             </Text>
-            
+
             <Divider my={4} />
 
-            {/* Filter Section */}
+            {/* Seat Position Filter */}
             <Box>
                 <Text fontWeight={600} fontSize={'14px'} color={'black'}>Vị trí ghế</Text>
                 <Flex direction="column" mt={2} gap={3}>
@@ -35,7 +41,7 @@ export default function FilterSection() {
                     </Flex>
                     <Flex alignItems="center" gap={2}>
                         <Checkbox colorScheme="purple" />
-                        <Text fontWeight={400} fontSize={'14px'}>Ghế ngồi cuối </Text>
+                        <Text fontWeight={400} fontSize={'14px'}>Ghế ngồi cuối</Text>
                         <Text fontWeight={400} fontSize={'14px'} ml="auto">$130</Text>
                     </Flex>
                 </Flex>
@@ -43,19 +49,57 @@ export default function FilterSection() {
 
             <Divider my={4} />
 
-            {/* Time Filter Section */}
+            {/* Departure Time Filter Section */}
             <Box>
-                <Text fontWeight={600} fontSize={'14px'} color={'black'}>Giá vé </Text>
+                <Text fontWeight={600} fontSize={'14px'} color={'black'}>Giờ đi</Text>
                 <Slider
                     mt={4}
-                    aria-label="slider-ex-1"
-                    defaultValue={sliderValue}
-                    onChange={(val) => setSliderValue(val)}
+                    aria-label="departure-time-slider"
+                    defaultValue={departureTime}
+                    min={0}
+                    max={24}
+                    onChange={(val) => setDepartureTime(val)}
+                    onMouseEnter={() => setShowDepartureTooltip(true)}
+                    onMouseLeave={() => setShowDepartureTooltip(false)}
                 >
                     <SliderTrack bg="gray.200">
                         <SliderFilledTrack bg="purple.500" />
                     </SliderTrack>
-                    <SliderThumb boxSize={4} bg="purple.500" />
+                    <SliderThumb boxSize={4} bg="purple.500">
+                        {showDepartureTooltip && (
+                            <Tooltip label={`${departureTime}:00`} isOpen={showDepartureTooltip} placement="top">
+                                <Box as="span">{`${departureTime}:00`}</Box>
+                            </Tooltip>
+                        )}
+                    </SliderThumb>
+                </Slider>
+            </Box>
+
+            <Divider my={4} />
+
+            {/* Ticket Price Filter Section */}
+            <Box>
+                <Text fontWeight={600} fontSize={'14px'} color={'black'}>Giá vé</Text>
+                <Slider
+                    mt={4}
+                    aria-label="ticket-price-slider"
+                    defaultValue={ticketPrice}
+                    min={0}
+                    max={20}
+                    onChange={(val) => setTicketPrice(val)}
+                    onMouseEnter={() => setShowPriceTooltip(true)}
+                    onMouseLeave={() => setShowPriceTooltip(false)}
+                >
+                    <SliderTrack bg="gray.200">
+                        <SliderFilledTrack bg="purple.500" />
+                    </SliderTrack>
+                    <SliderThumb boxSize={4} bg="purple.500">
+                        {showPriceTooltip && (
+                            <Tooltip label={`${ticketPrice * 1000} đ`} isOpen={showPriceTooltip} placement="top">
+                                <Box as="span">{ticketPrice * 1000} đ</Box>
+                            </Tooltip>
+                        )}
+                    </SliderThumb>
                 </Slider>
             </Box>
 
