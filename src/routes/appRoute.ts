@@ -1,4 +1,4 @@
-import { HomePage, TripPage } from '@/pages';
+import { HomePage, TripPage, BookingDetailsPage } from '@/pages';
 
 const appRoute = {
 	home: {
@@ -8,6 +8,10 @@ const appRoute = {
 	trip: {
 		path: '/trip',
 		component: TripPage,
+	},
+	booking: {
+		path: '/booking',
+		component: BookingDetailsPage,
 	}
 }
 
