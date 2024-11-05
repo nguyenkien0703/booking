@@ -34,7 +34,7 @@ export default function SearchTrip() {
                 alignItems={'center'}
                 gap={3}
             >
-                <Box display="flex" alignItems="center" borderWidth="1px" borderRadius="md" paddingLeft={3} width="180px">
+                <Box display="flex" alignItems="center" borderWidth="1px" borderRadius="md" paddingLeft={3} width="100%">
                     <Icon as={IoIosRadioButtonOn} color="gray.500" />
                     <Select placeholder="Nơi xuất phát" border="none" _focus={{ boxShadow: "none" }}>
                         <option value="option1">Option 1</option>
@@ -47,7 +47,7 @@ export default function SearchTrip() {
                     <IoIosSwap size={24} />
                 </Box>
 
-                <Box display="flex" alignItems="center" borderWidth="1px" borderRadius="md" paddingLeft={3} width="150px">
+                <Box display="flex" alignItems="center" borderWidth="1px" borderRadius="md" paddingLeft={3} width="100%">
                     <Icon as={MdLocationPin} color="gray.500" />
                     <Select placeholder="Nơi đến" border="none" _focus={{ boxShadow: "none" }}>
                         <option value="option1">Option 1</option>
