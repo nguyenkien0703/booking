@@ -104,89 +104,117 @@
 // index.tsx
 // index.tsx
 import { SearchTrip } from "@/components";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, VStack, Stack, useBreakpointValue } from "@chakra-ui/react";
 import TripItem from "./components/TripItem";
 import FilterSection from "./components/FilterSection";
 import Advertising from "./components/Advertising";
 
 export default function Trip() {
+    const paddingValue = useBreakpointValue({ base: '20px 20px', md: '30px 50px' });
+
     return (
-        <Flex flexDirection="column" paddingBottom="50px">
+        <Flex flexDirection="column" pb="50px" bg="#F9FAFB">
+            {/* Search Bar Section */}
             <Box
-                padding={{
-                    base: '20px 20px',
-                    md: '30px 50px'
-                }}
+                py={6}
+                px={paddingValue}
                 width="100%"
-                backgroundColor="white"
+                bg="white"
+                boxShadow="sm"
+                borderBottom="1px solid"
+                borderColor="gray.200"
             >
                 <SearchTrip />
             </Box>
-            <Flex
-                flexDirection={{ base: 'column', md: 'row' }}
+
+            {/* Main Content Area */}
+            <Stack
+                direction={{ base: 'column', md: 'row' }}
                 backgroundColor="#F3F3F3"
-                padding={{
-                    base: '20px 20px',
-                    md: '30px 50px'
-                }}
+                padding={paddingValue}
                 gap={10}
-                justifyContent="center"
+                justify="center"
+                align="flex-start"
+                width="100%"
+                spacing={6}
             >
-                {/* Filter Section bên trái */}
+                {/* Filter Section on the Left */}
                 <Box
+                    flex="1"
                     width={{ base: '100%', md: '20%' }}
-                    padding={{ base: '10px', md: '20px' }}
+                    padding={4}
                     backgroundColor="white"
                     borderRadius="md"
-                    boxShadow="md"
+                    boxShadow="lg"
                 >
                     <FilterSection />
                 </Box>
                 
-                {/* Trip Items giữa */}
-                <Flex
-                    flexDirection="column"
+                {/* Trip Items in the Middle */}
+                <VStack
+                    flex="2"
                     width={{ base: '100%', md: '50%' }}
-                    alignItems="center"
-                    gap={5}
+                    alignItems="stretch"
+                    gap={6}
                 >
-                    <TripItem />
-                    <TripItem />
-                    <TripItem />
-                    <TripItem />
-                    <TripItem />
-                    <TripItem />
-                </Flex>
+                    {Array.from({ length: 6 }).map((_, idx) => (
+                        <TripItem key={idx} />
+                    ))}
+                </VStack>
 
-                {/* Advertising bên phải */}
-                <Box
+                {/* Advertising Section on the Right */}
+                <VStack
+                    flex="1"
                     width={{ base: '100%', md: '20%' }}
-                    padding={{ base: '10px', md: '20px' }}
-                    backgroundColor="white"
-                    borderRadius="md"
-                    boxShadow="md"
+                    spacing={4}
                 >
-                    <Advertising 
-                        imageSrc="https://nonwovenn.com/wp-content/uploads/2021/08/Relocating_Production_featured.jpg" 
-                        title="International Guideline" 
-                        description="COVID safety measures adopted by various countries including VISA restrictions, quarantine rules, etc." 
-                        buttonText="View guidelines" 
-                    />
-                    <Advertising 
-                        imageSrc="https://vnc-os.com/wp-content/uploads/2022/09/discount.jpg" 
-                        title="Great Deal" 
-                        description="Get more, spend less with up to $575 off when you book your flight + stay together,etc" 
-                        buttonText="View Deal" 
-                    />
-                    <Advertising 
-                        imageSrc="https://evngenco2.vn/uploads/news/2023_05/cach-quet-ma-qr-hinh-1.jpg" 
-                        title="Tap into the world of travel" 
-                        description="Scan the QR code with your device camera and download our app." 
-                        buttonText="Scan QR" 
-                    />
+                    <Box
+                        width="100%"
+                        padding={4}
+                        backgroundColor="white"
+                        borderRadius="md"
+                        boxShadow="lg"
+                    >
+                        <Advertising
+                            imageSrc="https://nonwovenn.com/wp-content/uploads/2021/08/Relocating_Production_featured.jpg"
+                            title="International Guideline"
+                            description="COVID safety measures adopted by various countries including VISA restrictions, quarantine rules, etc."
+                            buttonText="View guidelines"
+                        />
+                    </Box>
 
-                </Box>
-            </Flex>
+                    <Box
+                        width="100%"
+                        padding={4}
+                        backgroundColor="white"
+                        borderRadius="md"
+                        boxShadow="lg"
+                    >
+                        <Advertising
+                            imageSrc="https://vnc-os.com/wp-content/uploads/2022/09/discount.jpg"
+                            title="Great Deal"
+                            description="Get more, spend less with up to $575 off when you book your flight + stay together,etc"
+                            buttonText="View Deal"
+                        />
+                    </Box>
+
+                    <Box
+                        width="100%"
+                        padding={4}
+                        backgroundColor="white"
+                        borderRadius="md"
+                        boxShadow="lg"
+                    >
+                        <Advertising
+                            imageSrc="https://evngenco2.vn/uploads/news/2023_05/cach-quet-ma-qr-hinh-1.jpg"
+                            title="Tap into the world of travel"
+                            description="Scan the QR code with your device camera and download our app."
+                            buttonText="Scan QR"
+                        />
+                    </Box>
+                </VStack>
+            </Stack>
         </Flex>
     );
 }
+

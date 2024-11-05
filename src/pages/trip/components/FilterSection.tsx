@@ -1,129 +1,163 @@
-import { Box, Checkbox, Flex, Text, Button, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Divider, Tooltip } from '@chakra-ui/react';
+import { Box, Text, VStack, Checkbox, Divider, Flex, Button, RangeSlider, RangeSliderTrack, RangeSliderFilledTrack, RangeSliderThumb } from '@chakra-ui/react';
 import { useState } from 'react';
 
 export default function FilterSection() {
-    // State for "Giờ đi" slider
-    const [departureTime, setDepartureTime] = useState(12); // default to 12
-    const [showDepartureTooltip, setShowDepartureTooltip] = useState(false);
-
-    // State for "Giá vé" slider
-    const [ticketPrice, setTicketPrice] = useState(10); // default to 10
-    const [showPriceTooltip, setShowPriceTooltip] = useState(false);
-
+    const [departureTime, setDepartureTime] = useState([5, 17]); // Giả sử từ 5:00 AM đến 5:00 PM
+    const [priceRange, setPriceRange] = useState([0, 2000000]); // Giả sử giá vé từ 0 đến 2.000.000đ
     return (
-        <Box
-            backgroundColor={'white'}
-            p={4}
-            width={'235px'}
-            boxShadow={'0px 4px 4px rgba(141, 141, 141, 0.25)'}
-            borderRadius={'4px'}
-        >
-            {/* Header */}
-            <Text fontFamily={'Segoe UI'} fontWeight={600} fontSize={'18px'} color={'black'}>
-                Lọc
+        <Box p={4} bg="white" borderRadius="md" boxShadow="md" width="100%">
+            <Text fontSize="xl" fontWeight="bold" mb={4}>
+                Filter By
             </Text>
 
-            <Divider my={4} />
-
-            {/* Seat Position Filter */}
-            <Box>
-                <Text fontWeight={600} fontSize={'14px'} color={'black'}>Vị trí ghế</Text>
-                <Flex direction="column" mt={2} gap={3}>
-                    <Flex alignItems="center" gap={2}>
-                        <Checkbox colorScheme="purple" />
-                        <Text fontWeight={400} fontSize={'14px'}>Ghế hàng đầu</Text>
-                        <Text fontWeight={400} fontSize={'14px'} ml="auto">$110</Text>
-                    </Flex>
-                    <Flex alignItems="center" gap={2}>
-                        <Checkbox colorScheme="purple" />
-                        <Text fontWeight={400} fontSize={'14px'}>Ghế ngồi giữa</Text>
-                        <Text fontWeight={400} fontSize={'14px'} ml="auto">$120</Text>
-                    </Flex>
-                    <Flex alignItems="center" gap={2}>
-                        <Checkbox colorScheme="purple" />
-                        <Text fontWeight={400} fontSize={'14px'}>Ghế ngồi cuối</Text>
-                        <Text fontWeight={400} fontSize={'14px'} ml="auto">$130</Text>
-                    </Flex>
+            {/* Stop Section */}
+            <VStack align="start" spacing={2} mb={4}>
+                <Text fontWeight="bold">Stop</Text>
+                <Flex justifyContent="space-between" width="100%">
+                    <Checkbox>Nonstop (23)</Checkbox>
+                    <Text>$110</Text>
                 </Flex>
-            </Box>
+                <Flex justifyContent="space-between" width="100%">
+                    <Checkbox>1 Stop (4)</Checkbox>
+                    <Text>$324</Text>
+                </Flex>
+                <Flex justifyContent="space-between" width="100%">
+                    <Checkbox>2+ Stops (2)</Checkbox>
+                    <Text>$349</Text>
+                </Flex>
+            </VStack>
 
-            <Divider my={4} />
+            <Divider />
 
-            {/* Departure Time Filter Section */}
-            <Box>
-                <Text fontWeight={600} fontSize={'14px'} color={'black'}>Giờ đi</Text>
-                <Slider
-                    mt={4}
-                    aria-label="departure-time-slider"
-                    defaultValue={departureTime}
-                    min={0}
+            {/* Airlines Section */}
+            <VStack align="start" spacing={2} mt={4} mb={4}>
+                <Text fontWeight="bold">Airlines</Text>
+                <Flex justifyContent="space-between" width="100%">
+                    <Checkbox>ABC Air Technologies</Checkbox>
+                    <Text>$203</Text>
+                </Flex>
+                <Flex justifyContent="space-between" width="100%">
+                    <Checkbox>ABC Airlines</Checkbox>
+                    <Text>$160</Text>
+                </Flex>
+                <Flex justifyContent="space-between" width="100%">
+                    <Checkbox>XYZ Airways</Checkbox>
+                    <Text>$212</Text>
+                </Flex>
+                <Flex justifyContent="space-between" width="100%">
+                    <Checkbox>BOP Links</Checkbox>
+                    <Text>$129</Text>
+                </Flex>
+                <Flex justifyContent="space-between" width="100%">
+                    <Checkbox>EDF Express</Checkbox>
+                    <Text>$190</Text>
+                </Flex>
+            </VStack>
+
+            <Divider />
+
+            {/* Travel and Baggage Section */}
+            <VStack align="start" spacing={2} mt={4} mb={4}>
+                <Text fontWeight="bold">Travel and Baggage</Text>
+                <Flex justifyContent="space-between" width="100%">
+                    <Checkbox>Carry-on bag</Checkbox>
+                    <Text>$129</Text>
+                </Flex>
+                <Flex justifyContent="space-between" width="100%">
+                    <Checkbox>Checked bag</Checkbox>
+                    <Text>$99</Text>
+                </Flex>
+            </VStack>
+
+            <Divider />
+
+            {/* Departure Time Section */}
+            <VStack align="start" spacing={2} mt={4} mb={4}>
+                <Text fontWeight="bold">Giờ xuất phát</Text>
+                <Flex justifyContent="space-between" width="100%">
+                    <Text>Mon {departureTime[0]}:00 AM</Text>
+                    <Text>Tue {departureTime[1] % 12}:00 {departureTime[1] >= 12 ? 'PM' : 'AM'}</Text>
+                </Flex>
+                <RangeSlider
+                    min={5}
                     max={24}
-                    onChange={(val) => setDepartureTime(val)}
-                    onMouseEnter={() => setShowDepartureTooltip(true)}
-                    onMouseLeave={() => setShowDepartureTooltip(false)}
+                    step={1}
+                    defaultValue={departureTime}
+                    onChangeEnd={(val) => setDepartureTime(val)}
+                    colorScheme="purple"
                 >
-                    <SliderTrack bg="gray.200">
-                        <SliderFilledTrack bg="purple.500" />
-                    </SliderTrack>
-                    <SliderThumb boxSize={4} bg="purple.500">
-                        {showDepartureTooltip && (
-                            <Tooltip label={`${departureTime}:00`} isOpen={showDepartureTooltip} placement="top">
-                                <Box as="span">{`${departureTime}:00`}</Box>
-                            </Tooltip>
-                        )}
-                    </SliderThumb>
-                </Slider>
-            </Box>
+                    <RangeSliderTrack>
+                        <RangeSliderFilledTrack />
+                    </RangeSliderTrack>
+                    <RangeSliderThumb index={0} />
+                    <RangeSliderThumb index={1} />
+                </RangeSlider>
+            </VStack>
 
-            <Divider my={4} />
+            <Divider />
 
-            {/* Ticket Price Filter Section */}
-            <Box>
-                <Text fontWeight={600} fontSize={'14px'} color={'black'}>Giá vé</Text>
-                <Slider
-                    mt={4}
-                    aria-label="ticket-price-slider"
-                    defaultValue={ticketPrice}
+            {/* Price Range Section */}
+            <VStack align="start" spacing={2} mt={4} mb={4}>
+                <Text fontWeight="bold">Giá vé</Text>
+                <Flex justifyContent="space-between" width="100%">
+                    <Text>{priceRange[0].toLocaleString()}đ</Text>
+                    <Text>{priceRange[1].toLocaleString()}đ</Text>
+                </Flex>
+                <RangeSlider
                     min={0}
-                    max={20}
-                    onChange={(val) => setTicketPrice(val)}
-                    onMouseEnter={() => setShowPriceTooltip(true)}
-                    onMouseLeave={() => setShowPriceTooltip(false)}
+                    max={2000000}
+                    step={50000}
+                    defaultValue={priceRange}
+                    onChangeEnd={(val) => setPriceRange(val)}
+                    colorScheme="purple"
                 >
-                    <SliderTrack bg="gray.200">
-                        <SliderFilledTrack bg="purple.500" />
-                    </SliderTrack>
-                    <SliderThumb boxSize={4} bg="purple.500">
-                        {showPriceTooltip && (
-                            <Tooltip label={`${ticketPrice * 1000} đ`} isOpen={showPriceTooltip} placement="top">
-                                <Box as="span">{ticketPrice * 1000} đ</Box>
-                            </Tooltip>
-                        )}
-                    </SliderThumb>
-                </Slider>
-            </Box>
+                    <RangeSliderTrack>
+                        <RangeSliderFilledTrack />
+                    </RangeSliderTrack>
+                    <RangeSliderThumb index={0} />
+                    <RangeSliderThumb index={1} />
+                </RangeSlider>
+            </VStack>
 
-            <Divider my={4} />
+            <Divider />
+            <Divider />
 
-            {/* Action Buttons */}
-            <Flex gap={3} mt={4}>
-                <Button
-                    width="80px"
-                    color="purple.600"
-                    fontWeight={600}
-                    variant="ghost"
-                >
-                    Clear
+            {/* Departure Airports Section */}
+            <VStack align="start" spacing={2} mt={4} mb={4}>
+                <Text fontWeight="bold">Departure Airports</Text>
+                <Flex justifyContent="space-between" width="100%">
+                    <Checkbox>LCY, London (11)</Checkbox>
+                    <Text>$221</Text>
+                </Flex>
+                <Flex justifyContent="space-between" width="100%">
+                    <Checkbox>LHR, London (19)</Checkbox>
+                    <Text>$143</Text>
+                </Flex>
+            </VStack>
+
+            <Divider />
+
+            {/* Arrival Airports Section */}
+            <VStack align="start" spacing={2} mt={4} mb={4}>
+                <Text fontWeight="bold">Arrival Airports</Text>
+                <Flex justifyContent="space-between" width="100%">
+                    <Checkbox>NBO, Nairobi (32)</Checkbox>
+                    <Text>$122</Text>
+                </Flex>
+                <Flex justifyContent="space-between" width="100%">
+                    <Checkbox>WIL, Nairobi (21)</Checkbox>
+                    <Text>$107</Text>
+                </Flex>
+            </VStack>
+
+            <Divider />
+
+            {/* Reset and Apply Filters Buttons */}
+            <Flex justifyContent="space-between" mt={4}>
+                <Button variant="outline" colorScheme="blue">
+                    Reset
                 </Button>
-                <Button
-                    width="131px"
-                    color="white"
-                    backgroundColor="purple.500"
-                    fontWeight={600}
-                    _hover={{ bg: 'purple.600' }}
-                >
-                    Apply
-                </Button>
+                <Button colorScheme="blue">Apply Filters</Button>
             </Flex>
         </Box>
     );
