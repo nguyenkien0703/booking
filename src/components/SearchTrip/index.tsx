@@ -141,7 +141,7 @@ export default function SearchTrip() {
                         Điểm đến
                     </FormLabel>
                     <Box display="flex" alignItems="center" borderWidth="1px" borderRadius="md" paddingLeft={3} width="100%">
-                        <Icon as={IoIosRadioButtonOn} color="gray.500" />
+                        <Icon as={MdLocationPin} color="gray.500" />
                         <Select placeholder="Nam Định" border="none" _focus={{ boxShadow: "none" }}>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>

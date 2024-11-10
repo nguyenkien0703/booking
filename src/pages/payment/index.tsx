@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Button } from '@chakra-ui/react';
+import { Box, Flex, Heading} from '@chakra-ui/react';
 import Price from './components/Price';
 import PaymentMethod from './components/PaymentMethod';
 import { PrimaryButton } from '@/components';
