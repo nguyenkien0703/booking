@@ -105,7 +105,6 @@ export default function SearchTrip() {
         setDateValue(event.target.value);
     };
 
-
     return (
         <Grid templateColumns={'repeat(2, 1fr)'} mt={3} gap={3}>
             <GridItem
@@ -131,8 +130,7 @@ export default function SearchTrip() {
                     </Box>
                 </FormControl>
 
-
-                <Box mx={2} top = {10}>
+                <Box mx={2} display="flex" alignSelf="center" mt="6" justifyContent="center">
                     <IoIosSwap size={24} />
                 </Box>
 
@@ -160,7 +158,7 @@ export default function SearchTrip() {
                 alignItems={'center'}
                 gap={3}
             >
-                <FormControl>
+                <FormControl flex="1">
                     <FormLabel mb="1" fontSize="sm" color="gray.600">
                         Ngày đi
                     </FormLabel>
@@ -172,7 +170,7 @@ export default function SearchTrip() {
                     />
                 </FormControl>
 
-                <PrimaryButton leftIcon={<IoIosSearch />}>
+                <PrimaryButton leftIcon={<IoIosSearch />} alignSelf="flex-end" mt="6">
                     Search
                 </PrimaryButton>
             </GridItem>
