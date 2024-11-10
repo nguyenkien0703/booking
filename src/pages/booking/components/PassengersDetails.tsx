@@ -1,4 +1,4 @@
-import { Box, VStack, Text, Flex, Input, Select, Checkbox, Divider, Alert, AlertIcon } from '@chakra-ui/react';
+import { Box, VStack, Text, Flex, Input, Select, Divider, Alert, AlertIcon } from '@chakra-ui/react';
 
 export default function PassengersDetails() {
     return (
@@ -14,16 +14,16 @@ export default function PassengersDetails() {
         >
             {/* Title */}
             <Text fontSize="xl" fontWeight="bold" mb={2}>
-                Passengers Details
+                Quý khách vui lòng điền thông tin
             </Text>
             <Flex justifyContent="space-between" alignItems="center" mb={4}>
-                <Text fontSize="md" fontWeight="semibold">
+                {/* <Text fontSize="md" fontWeight="semibold">
                     Primary Passenger
-                </Text>
-                <Select maxW="200px" placeholder="Adult (over 12 years)">
-                    <option value="adult">Adult (over 12 years)</option>
-                    <option value="child">Child (2-12 years)</option>
-                    <option value="infant">Infant (under 2 years)</option>
+                </Text> */}
+                <Select maxW="200px" placeholder="Người lớn (trên 12 tuổi)">
+                    <option value="adult">Người lớn (trên 12 tuổi)</option>
+                    <option value="child">Trẻ em (từ 2-12 tuổi)</option>
+                    <option value="infant">Trẻ sơ sinh (dưới 2 tuổi)</option>
                 </Select>
             </Flex>
 
@@ -39,24 +39,24 @@ export default function PassengersDetails() {
             <VStack spacing={4} align="stretch">
                 <Flex gap={4} flexDirection={{ base: "column", md: "row" }}>
                     <Box flex="1">
-                        <Text fontSize="sm" fontWeight="semibold">First and Middle Name</Text>
-                        <Input placeholder="e.g. John Doe" />
+                        <Text fontSize="sm" fontWeight="semibold">Họ và tên</Text>
+                        <Input placeholder="v.d. Nguyễn Văn A" />
                     </Box>
                     <Box flex="1">
-                        <Text fontSize="sm" fontWeight="semibold">Surname</Text>
-                        <Input placeholder="e.g. Bobby" />
+                        <Text fontSize="sm" fontWeight="semibold">Số Điện Thoại</Text>
+                        <Input placeholder="Số Điện Thoại" />
                     </Box>
                 </Flex>
 
-                <Flex gap={4} flexDirection={{ base: "column", md: "row" }}>
+                {/* <Flex gap={4} flexDirection={{ base: "column", md: "row" }}>
                     <Box flex="1">
                         <Text fontSize="sm" fontWeight="semibold">Nationality</Text>
                         <Select placeholder="Select">
                             <option value="us">United States</option>
                             <option value="vn">Vietnam</option>
-                            <option value="jp">Japan</option>
+                            <option value="jp">Japan</option> */}
                             {/* Thêm các quốc gia khác vào đây */}
-                        </Select>
+                        {/* </Select>
                     </Box>
                     <Box flex="1">
                         <Text fontSize="sm" fontWeight="semibold">Gender</Text>
@@ -70,18 +70,32 @@ export default function PassengersDetails() {
                         <Text fontSize="sm" fontWeight="semibold">Date of birth</Text>
                         <Input type="date" placeholder="dd/mm/yyyy" />
                     </Box>
-                </Flex>
+                </Flex> */}
 
                 <Flex gap={4} flexDirection={{ base: "column", md: "row" }}>
                     <Box flex="1">
-                        <Text fontSize="sm" fontWeight="semibold">Passport number</Text>
-                        <Input placeholder="Passport number..." />
+                        {/* Email */}
+                        <Text fontSize="sm" fontWeight="bold" mb={1}>Email</Text>
+                        <Input placeholder="nguyenvana@gmail.com" />
                     </Box>
                     <Box flex="1">
+                        <Text fontSize="sm" fontWeight="semibold">Loại ghế</Text>
+                        <Select placeholder="Ghế đầu">
+                            <option value="us">Ghế đầu</option>
+                            <option value="vn">Ghế giữa</option>
+                            <option value="jp">Ghế cuối</option>
+                            {/* Thêm các quốc gia khác vào đây */}
+                        </Select>
+                    </Box>
+                    {/* <Box flex="1">
+                        <Text fontSize="sm" fontWeight="semibold">Passport number</Text>
+                        <Input placeholder="Passport number..." />
+                    </Box> */}
+                    {/* <Box flex="1">
                         <Text fontSize="sm" fontWeight="semibold">Passport expiration date</Text>
                         <Input type="date" placeholder="dd/mm/yyyy" />
                         <Checkbox mt={2}>No expiration</Checkbox>
-                    </Box>
+                    </Box> */}
                 </Flex>
             </VStack>
         </Box>

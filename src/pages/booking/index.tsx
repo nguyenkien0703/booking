@@ -1,6 +1,6 @@
 import { Box, VStack, Text} from '@chakra-ui/react';
 import TripSummary from './components/TripSummary';
-import ContactDetails from './components/ContactDetails';
+// import ContactDetails from './components/ContactDetails';
 import PassengersDetails from './components/PassengersDetails';
 import { PrimaryButton } from '@/components';
 
@@ -9,7 +9,7 @@ const BookingDetails = () => {
         <Box maxW="1000px" mx="auto" p={8} borderWidth="1px" borderRadius="lg" bg="white" boxShadow="lg">
             {/* Tiêu đề lớn ở đầu trang */}
             <Text fontSize="3xl" fontWeight="bold" mb={8} textAlign="center" color="gray.700">
-                Enter Your Booking Details
+                Chi Tiết Thông Tin Đặt Vé
             </Text>
             
             <VStack spacing={8} align="stretch">
@@ -19,9 +19,9 @@ const BookingDetails = () => {
                 </Box>
                 
                 {/* Contact Details Section */}
-                <Box borderWidth="1px" borderRadius="lg" p={6} bg="gray.50" boxShadow="sm">
+                {/* <Box borderWidth="1px" borderRadius="lg" p={6} bg="gray.50" boxShadow="sm">
                     <ContactDetails />
-                </Box>
+                </Box> */}
                 
                 
                 <Box borderWidth="1px" borderRadius="lg" p={6} bg="gray.50" boxShadow="sm">
@@ -29,7 +29,7 @@ const BookingDetails = () => {
                 </Box>
 
                 <PrimaryButton>
-                    Proceed to Payment
+                    Thanh Toán
                 </PrimaryButton>
                 
             </VStack>

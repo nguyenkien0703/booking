@@ -1,5 +1,5 @@
 import { Box, Flex, Text, VStack, HStack, Divider, Icon, Alert, AlertIcon } from '@chakra-ui/react';
-import { FaGlobe, FaSuitcaseRolling } from 'react-icons/fa';
+import { FaSuitcaseRolling } from 'react-icons/fa';
 import { FaCarSide } from "react-icons/fa";
 import { AiFillWarning } from 'react-icons/ai';
 
@@ -17,9 +17,9 @@ export default function TripSummary() {
         >
             {/* Header Section */}
             <Text fontSize="xl" fontWeight="bold" mb={4}>
-                Flight Summary
+                Tóm tắt thông tin chuyến đi
             </Text>
-            <Flex justifyContent="space-between" alignItems="center" mb={4}>
+            {/* <Flex justifyContent="space-between" alignItems="center" mb={4}>
                 <HStack>
                     <Icon as={FaGlobe} color="blue.500" />
                     <Text fontSize="lg" fontWeight="bold">ABC Airline</Text>
@@ -28,13 +28,13 @@ export default function TripSummary() {
                 <Text fontSize="md" fontWeight="semibold">
                     Travel Class: <span style={{ fontWeight: 'bold' }}>Economy</span>
                 </Text>
-            </Flex>
+            </Flex> */}
 
-            {/* Flight Details Section */}
+            {/* Trip Details Section */}
             <Box bg="#FFF5EB" p={4} borderRadius="md" mb={4}>
                 <Flex justifyContent="space-between">
                     <VStack align="start" spacing={1}>
-                        <Text fontSize="xl" fontWeight="bold">NBI</Text>
+                        <Text fontSize="xl" fontWeight="bold">Thanh Hóa</Text>
                         <Text fontSize="lg">14.50</Text>
                         <Text fontSize="sm">Sun, 29 Jan 2023</Text>
                         <Text fontSize="sm">Moi Intl, Mombasa, Kenya</Text>
@@ -42,7 +42,7 @@ export default function TripSummary() {
                     </VStack>
 
                     <VStack spacing={1} textAlign="center">
-                        <Text fontSize="sm" color="gray.600">9hr 50min</Text>
+                        <Text fontSize="sm" color="gray.600">2hr 30min</Text>
                         <Flex justifyContent={'space-between'} gap={1} alignItems={'center'}>
                                 <Box
                                     width={'50px'}
@@ -63,7 +63,7 @@ export default function TripSummary() {
                     </VStack>
 
                     <VStack align="start" spacing={1}>
-                        <Text fontSize="xl" fontWeight="bold">MBO</Text>
+                        <Text fontSize="xl" fontWeight="bold">Hà Nội</Text>
                         <Text fontSize="lg">14.50</Text>
                         <Text fontSize="sm">Sun, 29 Jan 2023</Text>
                         <Text fontSize="sm">JFK Terminal, Nairobi, Kenya</Text>
