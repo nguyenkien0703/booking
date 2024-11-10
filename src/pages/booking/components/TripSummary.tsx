@@ -44,22 +44,22 @@ export default function TripSummary() {
                     <VStack spacing={1} textAlign="center">
                         <Text fontSize="sm" color="gray.600">2hr 30min</Text>
                         <Flex justifyContent={'space-between'} gap={1} alignItems={'center'}>
-                                <Box
-                                    width={'50px'}
-                                    height={'1px'}
-                                    bgColor={'gray.300'}
-                                />
-                                <FaCarSide
-                                    size={20}
-                                    //className='rotate-90'
-                                    color='gray'
-                                />
-                                <Box
-                                    width={'50px'}
-                                    height={'1px'}
-                                    bgColor={'gray.300'}
-                                />
-                            </Flex>
+                            <Box
+                                width={'50px'}
+                                height={'1px'}
+                                bgColor={'gray.300'}
+                            />
+                            <FaCarSide
+                                size={20}
+                                //className='rotate-90'
+                                color='gray'
+                            />
+                            <Box
+                                width={'50px'}
+                                height={'1px'}
+                                bgColor={'gray.300'}
+                            />
+                        </Flex>
                     </VStack>
 
                     <VStack align="start" spacing={1}>
@@ -75,18 +75,17 @@ export default function TripSummary() {
 
                 {/* Baggage Information */}
                 <Flex justifyContent="space-between">
-                    <VStack align="start" spacing={1}>
-                        <Text fontWeight="bold">Baggage</Text>
-                        <Text>ADULT</Text>
+                    <VStack align="start" spacing={1} >
+                        <Text fontWeight="bold" fontSize="lg" >Tổng Cộng</Text>
+                        <Text fontSize="2xl" fontWeight="bold" >100.000</Text>
                     </VStack>
-                    <VStack align="start" spacing={1}>
-                        <Text fontWeight="bold">Check-in</Text>
-                        <Text>23Kgs (1 Piece * 23Kgs)</Text>
-                    </VStack>
-                    <VStack align="start" spacing={1}>
+                    
+
+
+                    {/* <VStack align="start" spacing={1}>
                         <Text fontWeight="bold">Cabin</Text>
                         <Text>7Kgs (1 Piece * 7kgs)</Text>
-                    </VStack>
+                    </VStack> */}
                 </Flex>
             </Box>
 
@@ -112,7 +111,7 @@ export default function TripSummary() {
             {/* Warning Section */}
             <Alert status="info" variant="subtle" borderRadius="md" mt={4}>
                 <AlertIcon />
-                Sorry, extra check-in baggage allowance details are not available currently from airline.
+                Khuyến cáo khách hàng không mang theo vật phẩm có mùi theo hành lý như mắm, sầu riêng,...
             </Alert>
         </Box>
     );
