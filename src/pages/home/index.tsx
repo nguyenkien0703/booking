@@ -8,10 +8,10 @@ const Index = () => {
 		<Flex
 			flexDirection={'column'}
 			position={'relative'}
-			paddingBottom={'50px'}
+			paddingBottom={'4rem'}
 		>
 			<Box
-				backgroundColor={'gray'}
+				backgroundColor={'gray.500'}
 				width={'100%'}
 				height={'500px'}
 				alignItems={'center'}
@@ -35,13 +35,13 @@ const Index = () => {
 					{"One Trip at a Time"}
 				</Text>
 				<Box
-					alignSelf={'center'}
+					alignSelf="center"
 					padding={{
 						base: '16px 12px',
 						md: '20px 24px',
 					}}
-					backgroundColor={'white'}
-					marginTop={'20px'}
+					backgroundColor="white"
+					marginTop="20px"
 					zIndex={2}
 					width={{
 						base: '100%',
@@ -49,9 +49,10 @@ const Index = () => {
 						'xl': '60%',
 						'2xl': '50%',
 					}}
+					boxShadow="lg" // Thêm shadow để hộp chứa nổi bật hơn
 				>
-					<Text variant={'h3'} color='black'>
-						Search Trips
+					<Text variant="h3" color="black">
+						Tìm kiếm chuyến đi
 					</Text>
 					<SearchTrip />
 				</Box>

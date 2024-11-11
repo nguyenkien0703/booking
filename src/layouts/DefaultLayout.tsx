@@ -27,7 +27,7 @@ export default function DefaultLayout() {
                 >
                     <Box mb={4} width={{ base: "100%", md: "auto" }} textAlign={{ base: "center", md: "left" }}>
                         <Text fontWeight="bold" fontSize="2xl" mb={4}>
-                            GlobGoer
+                            Drive Hub
                         </Text>
                     </Box>
                     
