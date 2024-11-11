@@ -1,4 +1,4 @@
-import { Box, VStack, Text, Flex, Input, Select, Divider, Alert, AlertIcon } from '@chakra-ui/react';
+import { Box, VStack, Text, Flex, Input, Select, Divider } from '@chakra-ui/react';
 
 export default function PassengersDetails() {
     return (
@@ -28,10 +28,10 @@ export default function PassengersDetails() {
             </Flex>
 
             {/* Alert for instructions */}
-            <Alert status="info" borderRadius="md" mb={4}>
+            {/* <Alert status="info" borderRadius="md" mb={4}>
                 <AlertIcon />
                 Use all given names and surnames <strong> exactly as they appear in your passport/ID</strong> to avoid boarding complications.
-            </Alert>
+            </Alert> */}
 
             <Divider mb={4} />
 

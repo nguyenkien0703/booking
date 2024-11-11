@@ -1,7 +1,5 @@
-import { Box, Flex, Text, VStack, HStack, Divider, Icon, Alert, AlertIcon } from '@chakra-ui/react';
-import { FaSuitcaseRolling } from 'react-icons/fa';
+import { Box, Flex, Text, VStack, Divider, Alert, AlertIcon } from '@chakra-ui/react';
 import { FaCarSide } from "react-icons/fa";
-import { AiFillWarning } from 'react-icons/ai';
 
 export default function TripSummary() {
     return (
@@ -62,7 +60,7 @@ export default function TripSummary() {
                         </Flex>
                     </VStack>
 
-                    <VStack align="start" spacing={1}>
+                    <VStack align="end" spacing={1}>
                         <Text fontSize="xl" fontWeight="bold">Hà Nội</Text>
                         <Text fontSize="lg">14.50</Text>
                         <Text fontSize="sm">Sun, 29 Jan 2023</Text>
@@ -74,29 +72,31 @@ export default function TripSummary() {
                 <Divider my={4} />
 
                 {/* Baggage Information */}
-                <Flex justifyContent="space-between">
-                    <VStack align="start" spacing={1} >
-                        <Text fontWeight="bold" fontSize="lg" >Tổng Cộng</Text>
-                        <Text fontSize="2xl" fontWeight="bold" >100.000</Text>
-                    </VStack>
-                    
+            </Box>
+
+            <Flex justifyContent="space-between">
+                <VStack align="start" spacing={1} >
+                    <Text fontWeight="bold" fontSize="lg" >Tổng Cộng</Text>
+                    <Text fontSize="2xl" fontWeight="bold" >100.000</Text>
+                </VStack>
 
 
-                    {/* <VStack align="start" spacing={1}>
+
+                {/* <VStack align="start" spacing={1}>
                         <Text fontWeight="bold">Cabin</Text>
                         <Text>7Kgs (1 Piece * 7kgs)</Text>
                     </VStack> */}
-                </Flex>
-            </Box>
+            </Flex>
 
             {/* Additional Information Section */}
-            <HStack spacing={4} my={2}>
+            
+            {/* <HStack spacing={4} my={2}>
                 <HStack>
                     <Icon as={FaSuitcaseRolling} color="gray.600" />
                     <Text fontSize="sm">Separate tickets booked together for cheaper price</Text>
                 </HStack>
                 <HStack>
-                    {/* <Icon as={FaExchangeAlt} color="gray.600" /> */}
+                    <Icon as={FaExchangeAlt} color="gray.600" />
                     <Text fontSize="sm">Change of Terminal</Text>
                 </HStack>
                 <HStack>
@@ -106,7 +106,7 @@ export default function TripSummary() {
                 <HStack>
                     <Text fontSize="sm">7kg</Text>
                 </HStack>
-            </HStack>
+            </HStack> */}
 
             {/* Warning Section */}
             <Alert status="info" variant="subtle" borderRadius="md" mt={4}>
