@@ -13,9 +13,6 @@ export default function TripItem() {
             alignSelf={'center'}
             width={{
                 base: '100%',
-                md: '70%',
-                lg: '60%',
-                xl: '40%'
             }}
         >
             <Flex
