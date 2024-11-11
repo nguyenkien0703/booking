@@ -27,7 +27,7 @@ export default function TripItem() {
                     padding={'10px'}
                 >
                     <Text variant={'body-tiny'}>
-                        Sun, 19 Nov 2024
+                        20/11/2024
                     </Text>
                     <Flex justifyContent={'space-between'}>
                         <Box>
@@ -35,12 +35,12 @@ export default function TripItem() {
                                 14.50
                             </Text>
                             <Text variant={'body-tiny'}>
-                                Thanh Hoa
+                                Thanh Hóa
                             </Text>
                         </Box>
                         <Box>
                             <Text variant={'body-small-bold'} padding={'0 20px'}>
-                                2hr 30mins
+                                2 giờ 30 phút
                             </Text>
                             <Flex justifyContent={'space-between'} gap={1} alignItems={'center'}>
                                 <Box
@@ -62,10 +62,10 @@ export default function TripItem() {
                         </Box>
                         <Box>
                             <Text variant={'body-large-bold'}>
-                                14.50
+                                16.10
                             </Text>
                             <Text variant={'body-tiny'}>
-                                Hanoi
+                                Hà Nội
                             </Text>
                         </Box>
                     </Flex>
@@ -82,16 +82,16 @@ export default function TripItem() {
                     alignItems={'center'}
                 >
                     <Text variant={'body-extra-large-bold'}>
-                        $10
+                        100.000đ
                     </Text>
                     <PrimaryButton>
-                        Book Now
+                        Đặt ngay
                     </PrimaryButton>
                 </Flex>
             </Flex>
             <Flex mt={5} justifyContent={'space-between'}>
                 <Text variant={'body-small'}>
-                    10 seats left
+                    10 chỗ trống
                 </Text>
                 <Text color='orange' variant={'body-small'}>
                     Partially refundable
@@ -101,7 +101,7 @@ export default function TripItem() {
                     color='primary.600'
                     cursor={'pointer'}
                 >
-                    View Details
+                    Xem chi tiết
                 </Text>
             </Flex>
         </Box>

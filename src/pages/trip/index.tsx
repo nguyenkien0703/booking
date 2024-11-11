@@ -19,6 +19,7 @@ import {
 } from "@chakra-ui/react";
 import { PrimaryButton, SearchTrip } from "@/components";
 import TripItem from "./components/TripItem";
+import { TfiFilter } from "react-icons/tfi";
 
 
 export default function Trip() {
@@ -67,11 +68,15 @@ export default function Trip() {
             }}
           >
             <PrimaryButton
+              leftIcon={<TfiFilter />} 
+              alignSelf="flex-end" 
               onClick={openFilterModal}
               width="300px"
               size="lg"
+              
             >
-              Filter
+              
+              Lọc 
             </PrimaryButton>
           </Box>
 

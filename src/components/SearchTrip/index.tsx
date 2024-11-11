@@ -117,7 +117,7 @@ export default function SearchTrip() {
                 </FormControl>
 
                 <PrimaryButton leftIcon={<IoIosSearch />} alignSelf="flex-end" mt="6">
-                    Search
+                    Tìm kiếm
                 </PrimaryButton>
             </GridItem>
         </Grid>
