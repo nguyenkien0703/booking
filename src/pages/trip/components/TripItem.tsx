@@ -35,7 +35,7 @@ export default function TripItem() {
                                 14.50
                             </Text>
                             <Text variant={'body-tiny'}>
-                                Thanh Hóa
+                                Hà Nam
                             </Text>
                         </Box>
                         <Box>
@@ -62,7 +62,7 @@ export default function TripItem() {
                         </Box>
                         <Box>
                             <Text variant={'body-large-bold'}>
-                                16.10
+                                17.20
                             </Text>
                             <Text variant={'body-tiny'}>
                                 Hà Nội
