@@ -2,11 +2,11 @@ import {FC} from 'react';
 import {useRoutes} from 'react-router-dom';
 import DefaultLayout from '@/layouts/DefaultLayout.tsx';
 import {NotFoundPage} from "@/pages";
-import appRoute from "@/routes/appRoute.ts";
+import {appRoute, authRoute} from "@/routes/appRoute.ts";
+import AuthLayout from "@/layouts/AuthLayout.tsx";
 
 const routes = [
 	{
-		path: '/',
 		element: <DefaultLayout/>,
 		children: [
 			...Object.values(appRoute).map(({path, component: Component}) => (
@@ -15,12 +15,23 @@ const routes = [
 					element: <Component />,
 				}
 			)),
-			{
-				path: '*',
-				element: <NotFoundPage/>
-			}
 		]
 	},
+	{
+		element: <AuthLayout />,
+		children: [
+			...Object.values(authRoute).map(({path, component: Component}) => (
+				{
+					path,
+					element: <Component />,
+				}
+			)),
+		]
+	},
+	{
+		path: '*',
+		element: <NotFoundPage/>
+	}
 ];
 
 const RenderRouter: FC = () => {

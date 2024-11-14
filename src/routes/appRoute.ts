@@ -1,4 +1,4 @@
-import { HomePage, TripPage, BookingDetailsPage, Payment } from '@/pages';
+import {HomePage, TripPage, BookingDetailsPage, Payment, LoginPage, RegisterPage} from '@/pages';
 
 const appRoute = {
 	home: {
@@ -16,7 +16,21 @@ const appRoute = {
 	payment: {
 		path: '/payment',
 		component: Payment,
+	},
+}
+
+const authRoute = {
+	login: {
+		path: '/login',
+		component: LoginPage,
+	},
+	register: {
+		path: '/register',
+		component: RegisterPage,
 	}
 }
 
-export default appRoute;
+export {
+	appRoute,
+	authRoute
+};
