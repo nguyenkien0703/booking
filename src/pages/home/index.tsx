@@ -1,5 +1,5 @@
 import { SearchTrip } from "@/components";
-import { Text, Box, Flex, Grid, GridItem } from "@chakra-ui/react";
+import { Text, Box, Flex, Grid, GridItem, Spacer } from "@chakra-ui/react";
 import HomeItemDescription from "./components/HomeItemDescription";
 import { HOME_ITEM_DATA } from "@/constants/data";
 
@@ -11,29 +11,20 @@ const Index = () => {
 			paddingBottom={'4rem'}
 		>
 			<Box
-				backgroundColor={'gray.500'}
+				backgroundImage={'https://vivutoday.com/wp-content/uploads/2023/07/vivutoday-home-banner.jpg'}
+				backgroundSize={'cover'}
+				backgroundPosition={'center'}
+				backgroundRepeat={'no-repeat'}
 				width={'100%'}
 				height={'500px'}
 				alignItems={'center'}
 				display={'flex'}
 				flexDirection={'column'}
+				justifyContent={'center'} // Căn giữa nội dung dọc theo Box
 			>
-				<Text
-					textAlign={'center'}
-					variant={{
-						base: 'display6',
-						md: 'display5',
-					}}
-					color={'white'}
-					zIndex={2}
-					whiteSpace={'pre-wrap'}
-					marginTop={{
-						base: '40px',
-					}}
-				>
-					{"Transforming Travel, \n"}
-					{"One Trip at a Time"}
-				</Text>
+				{/* Thêm một Box trống để tạo khoảng cách */}
+				<Box height="20px" /> {/* Tạo khoảng trống để giữ vị trí ổn định */}
+				
 				<Box
 					alignSelf="center"
 					padding={{
@@ -96,4 +87,4 @@ const Index = () => {
 	)
 }
 
-export default Index
+export default Index;
