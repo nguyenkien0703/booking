@@ -1,5 +1,5 @@
 import { SearchTrip } from "@/components";
-import { Text, Box, Flex, Grid, GridItem, Spacer } from "@chakra-ui/react";
+import { Text, Box, Flex, Grid, GridItem } from "@chakra-ui/react";
 import HomeItemDescription from "./components/HomeItemDescription";
 import { HOME_ITEM_DATA } from "@/constants/data";
 
