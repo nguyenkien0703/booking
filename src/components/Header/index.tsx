@@ -47,14 +47,14 @@ const Header = () => {
 				}}
 			>
 				<PrimaryButton>
-					Login or Create Account
+					Đăng nhập 
 				</PrimaryButton>
 				<Text
 					color='primary.600'
 					variant={'body-default-bold'}
 					cursor={'pointer'}
 				>
-					Select Language
+					Đăng ký tài khoản
 				</Text>
 			</Flex>
 		</header>
