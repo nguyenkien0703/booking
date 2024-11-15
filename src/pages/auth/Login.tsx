@@ -1,5 +1,5 @@
 import "./index.css";
-import {Button, Form, Input, Image} from "antd";
+import {Form, Input, Image} from "antd";
 import {useTranslation} from "react-i18next";
 import {Link, useNavigate} from "react-router-dom";
 import toast from "react-hot-toast";
@@ -7,6 +7,7 @@ import {isEmail} from "@/utils";
 import {JWT_LOCAL_STORAGE_KEY} from "@/constants/data.ts";
 import userService from "@/apis/service/userService";
 import { AxiosError } from 'axios';
+import { PrimaryButton } from "@/components";
 
 const Login = () => {
 	const [form] = Form.useForm();
@@ -84,14 +85,14 @@ const Login = () => {
 				<Link to={'/forgot-password'} className={'text-sm'}>
 					Forgot password?
 				</Link>
-				<Button
-					type="primary"
+				<PrimaryButton
+					type="submit"
 					onClick={form.submit}
 					className="auth-btn bg-black mt-3"
 					size="large"
 				>
 					{t("Login")}
-				</Button>
+				</PrimaryButton>
 				<div className={'mt-3 text-center'}>
 					<span className={'text-sm'}>{t("Don't have an account?")}</span>
 					<Link to={'/register'} className={'text-blue-500 text-sm'}>

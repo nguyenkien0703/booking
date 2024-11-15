@@ -1,10 +1,11 @@
 import "./index.css";
-import {Button, Form, Input, Image} from "antd";
+import {Form, Input, Image} from "antd";
 import {useTranslation} from "react-i18next";
 import {Link, useNavigate} from "react-router-dom";
 import toast from "react-hot-toast";
 import userService from "@/apis/service/userService";
 import { AxiosError } from 'axios';
+import { PrimaryButton } from "@/components";
 
 const Register = () => {
 	const [form] = Form.useForm();
@@ -90,14 +91,14 @@ const Register = () => {
 					</Form.Item>
 				</Form>
 				
-				<Button
-					type="primary"
+				<PrimaryButton
+					type="submit"
 					onClick={form.submit}
 					className="auth-btn bg-black mt-3"
 					size="large"
 				>
 					{t("Register")}
-				</Button>
+				</PrimaryButton>
 				<div className={'mt-3 text-center'}>
 					<span className={'text-sm'}>{t("Already have an account?")}</span>
 					<Link to={'/login'} className={'text-blue-500 text-sm'}>
