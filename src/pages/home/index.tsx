@@ -1,9 +1,13 @@
 import { SearchTrip } from "@/components";
-import { Text, Box, Flex, Grid, GridItem } from "@chakra-ui/react";
-import HomeItemDescription from "./components/HomeItemDescription";
 import { HOME_ITEM_DATA } from "@/constants/data";
+import { Box, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
+import HomeItemDescription from "./components/HomeItemDescription";
 
 const Index = () => {
+
+	
+
+
 	return (
 		<Flex
 			flexDirection={'column'}

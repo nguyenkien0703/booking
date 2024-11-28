@@ -1,32 +1,54 @@
-import { useState } from "react";
+/* eslint-disable */
+import serviceRoute from "@/apis/service/route";
+import { PrimaryButton, SearchTrip } from "@/components";
 import {
   Box,
-  Flex,
   Button,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  ModalFooter,
-  Text,
   Checkbox,
+  Flex,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   RangeSlider,
-  RangeSliderTrack,
   RangeSliderFilledTrack,
   RangeSliderThumb,
+  RangeSliderTrack,
+  Text,
 } from "@chakra-ui/react";
-import { PrimaryButton, SearchTrip } from "@/components";
-import TripItem from "./components/TripItem";
+import { useEffect, useState } from "react";
 import { TfiFilter } from "react-icons/tfi";
-
+import TripItem from "./components/TripItem";
 
 export default function Trip() {
   const [isFilterOpen, setFilterOpen] = useState(false);
 
   const openFilterModal = () => setFilterOpen(true);
   const closeFilterModal = () => setFilterOpen(false);
+  // Đừng quên khai báo các states cần thiết
+  const [routes, setRoutes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchRoutes = async () => {
+      try {
+        const response = await serviceRoute.getAllRoute(0, 10);
+        setRoutes(response.contents);
+      } catch (error) {
+        console.error("Error fetching routes:", error);
+        // @ts-ignore
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRoutes();
+  }, []);
 
   return (
     <Flex flexDirection="column" paddingBottom="50px">
@@ -64,28 +86,39 @@ export default function Trip() {
           <Box
             alignSelf="center"
             width={{
-              base: '100%',
+              base: "100%",
             }}
           >
             <PrimaryButton
-              leftIcon={<TfiFilter />} 
-              alignSelf="flex-end" 
+              leftIcon={<TfiFilter />}
+              alignSelf="flex-end"
               onClick={openFilterModal}
               width="300px"
               size="lg"
-              
             >
-              
-              Lọc 
+              Lọc
             </PrimaryButton>
           </Box>
+          {loading && <Text>Loading...</Text>}
+          {error && <Text color="red.500">Error: {error}</Text>}
+          {!loading && !error && routes.length === 0 && (
+            <Text>Không tìm thấy chuyến đi nào</Text>
+          )}
+          {!loading &&
+            !error &&
+            routes.map((route) => (
+              <TripItem
+                // key={route.id}
+                route={route}
+              />
+            ))}
 
+          {/* <TripItem />
           <TripItem />
           <TripItem />
           <TripItem />
           <TripItem />
-          <TripItem />
-          <TripItem />
+          <TripItem /> */}
         </Flex>
       </Flex>
 
@@ -105,7 +138,9 @@ export default function Trip() {
               <RangeSliderThumb index={1} />
             </RangeSlider>
 
-            <Text mt={4} mb={2}>Price Range</Text>
+            <Text mt={4} mb={2}>
+              Price Range
+            </Text>
             <RangeSlider defaultValue={[100, 1000]} min={0} max={2000}>
               <RangeSliderTrack>
                 <RangeSliderFilledTrack />
@@ -114,7 +149,9 @@ export default function Trip() {
               <RangeSliderThumb index={1} />
             </RangeSlider>
 
-            <Text mt={4} mb={2}>Stop Options</Text>
+            <Text mt={4} mb={2}>
+              Stop Options
+            </Text>
             <Checkbox>Nonstop</Checkbox>
             <Checkbox>1 Stop</Checkbox>
             <Checkbox>2+ Stops</Checkbox>

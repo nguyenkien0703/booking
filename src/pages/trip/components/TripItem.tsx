@@ -2,7 +2,7 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 import { PrimaryButton } from '@/components';
 import { FaCarSide } from "react-icons/fa";
 
-export default function TripItem() {
+export default function TripItem({route}:{route: any}) {
     return (
         <Box
             backgroundColor={'white'}
@@ -35,7 +35,7 @@ export default function TripItem() {
                                 14.50
                             </Text>
                             <Text variant={'body-tiny'}>
-                                Hà Nam
+                                {route.startStation.name}
                             </Text>
                         </Box>
                         <Box>
@@ -65,7 +65,7 @@ export default function TripItem() {
                                 17.20
                             </Text>
                             <Text variant={'body-tiny'}>
-                                Hà Nội
+                            {route.endStation.name}
                             </Text>
                         </Box>
                     </Flex>
