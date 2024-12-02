@@ -2,11 +2,23 @@ import { SearchTrip } from "@/components";
 import { HOME_ITEM_DATA } from "@/constants/data";
 import { Box, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
 import HomeItemDescription from "./components/HomeItemDescription";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
-
+	const navigate = useNavigate();
 	
-
+	const handleSearchResults = (data: any) => {
+        // Chuyển hướng sang trang trip và truyền data qua state
+        navigate('/trip', { 
+            state: { 
+                trips: data.contents,
+                totalItems: data.totalElements,
+                totalPages: data.totalPage,
+                currentPage: data.currentPage,
+                perPage: data.perPage
+            } 
+        });
+    }
 
 	return (
 		<Flex
@@ -49,7 +61,7 @@ const Index = () => {
 					<Text variant="h3" color="black">
 						Tìm kiếm chuyến đi
 					</Text>
-					<SearchTrip />
+					<SearchTrip onSearch={handleSearchResults} />
 				</Box>
 			</Box>
 			<Grid
